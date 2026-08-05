@@ -1,0 +1,17 @@
+
+{
+	"title": "AND value is object not array",
+	"input": {
+		"WHERE": {
+			"AND": {
+				"GT": { "small_avg": 80 }
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
+

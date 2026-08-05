@@ -1,0 +1,15 @@
+{
+	"title": "query overall section has year 1900",
+	"input": {
+		"WHERE": {
+			"EQ": { "small_year": 1900 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_id", "small_year", "small_instructor"]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_id": "310", "small_year": 1900, "small_instructor": "" }
+	]
+}

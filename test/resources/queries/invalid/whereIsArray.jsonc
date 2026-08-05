@@ -1,0 +1,12 @@
+
+{
+	"title": "WHERE is an array",
+	"input": {
+		"WHERE": [{ "GT": { "small_avg": 80 } }],
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

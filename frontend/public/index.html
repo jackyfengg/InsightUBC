@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>InsightUBC · A course-planning dossier</title>
+	<meta name="description" content="Upload UBC sections and rooms data, search by professor or grade history, and read the year-over-year pulse of any course." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<div class="scrollbar" aria-hidden="true"><div class="scrollbar__fill" id="scrollbar-fill"></div></div>
+	<button class="back-top" type="button" id="back-top" aria-label="Back to top" hidden>
+		<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>
+		</svg>
+	</button>
+	<!-- ===== Navigation ===== -->
+	<header class="nav" id="top">
+		<div class="nav__inner">
+			<a class="brand" href="#top" aria-label="InsightUBC home">
+				<svg class="brand__mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+					<defs>
+						<linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#6366f1" />
+							<stop offset="1" stop-color="#a855f7" />
+						</linearGradient>
+					</defs>
+					<rect x="1" y="1" width="30" height="30" rx="9" fill="url(#brandGrad)" />
+					<path d="M8 21 L14 14 L18 18 L24 10" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+					<circle cx="24" cy="10" r="2.4" fill="#fff" />
+				</svg>
+				<span class="brand__name">Insight<em class="brand__accent">UBC</em></span>
+			</a>
+			<nav class="nav__links" aria-label="Primary">
+				<a href="#upload" data-section="upload">Upload</a>
+				<a href="#datasets" data-section="datasets">Library</a>
+				<a href="#search" data-section="search">Search</a>
+				<a href="#pulse" data-section="pulse">Pulse</a>
+			</nav>
+			<a class="nav__cta" href="#search">Search courses</a>
+		</div>
+	</header>
+
+	<main>
+		<!-- ===== Hero ===== -->
+		<section class="hero">
+			<div class="hero__dropcap" aria-hidden="true">I</div>
+			<p class="hero__folio">
+				<span>VOL. 01</span><span class="bul">·</span>
+				<span>A course-planning dossier</span><span class="bul">·</span>
+				<span>UBC, Vancouver</span>
+			</p>
+			<h1 class="hero__title">
+				<span class="hero__title-pre">Read the</span>
+				<em class="hero__title-em">pulse</em>
+				<span class="hero__title-post">of every course you take.</span>
+			</h1>
+			<p class="hero__deck">
+				Upload a sections archive. Search by professor or grade history. Then ask the question that
+				doesn't fit a search box — <em>how is this course actually trending?</em>
+			</p>
+			<div class="hero__byline">
+				<span>By the InsightUBC engine</span><span class="bul">·</span>
+				<span>Updated as you upload</span><span class="bul">·</span>
+				<span>Edition 2026</span>
+			</div>
+		</section>
+
+		<!-- ===== Upload ===== -->
+		<section class="section" id="upload">
+			<div class="section__head" data-issue="№ 02 · Add a dataset">
+				<h2 class="section__title">Filing a new archive.</h2>
+				<p class="section__lead">
+					Drop in a <code>.zip</code> of UBC course sections or campus rooms. We unpack, validate, and
+					persist it to disk so the next visit picks up exactly where you left off.
+				</p>
+			</div>
+
+			<form id="add-form" class="card upload-card" novalidate>
+				<div class="upload-card__body">
+					<div class="field">
+						<span class="field__label">Kind</span>
+						<div class="duo" role="radiogroup" aria-label="Dataset kind">
+							<input type="radio" name="kind" id="kind-sections" value="sections" checked />
+							<label for="kind-sections">Sections</label>
+							<span class="duo__sep" aria-hidden="true">·</span>
+							<input type="radio" name="kind" id="kind-rooms" value="rooms" />
+							<label for="kind-rooms">Rooms</label>
+						</div>
+					</div>
+
+					<div class="field">
+						<label class="field__label" for="dataset-id">Dataset id</label>
+						<input class="input" type="text" id="dataset-id" name="id" placeholder="e.g. sections" autocomplete="off" spellcheck="false" />
+						<span class="field__help">No underscores. Cannot be empty or only whitespace.</span>
+					</div>
+
+					<div class="field">
+						<span class="field__label">Archive</span>
+						<label class="dropzone" id="dropzone" for="zip-file" tabindex="0">
+							<svg class="dropzone__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M12 16V4" /><path d="m7 9 5-5 5 5" /><path d="M5 20h14" />
+							</svg>
+							<span class="dropzone__text" id="dropzone-text">Drag a <strong>.zip</strong> here, or <span class="link">browse</span></span>
+							<input type="file" id="zip-file" name="zip" accept=".zip,application/zip,application/x-zip-compressed" hidden />
+						</label>
+					</div>
+
+					<div class="form__actions">
+						<button class="btn btn--primary" type="submit" id="submit-btn">
+							<span class="btn__label">File this archive</span>
+							<span class="btn__spinner" aria-hidden="true"></span>
+						</button>
+					</div>
+
+					<div class="message" id="message" role="status" aria-live="polite" hidden></div>
+				</div>
+				<p class="card__footnote"><em>Filed under</em> — sections &amp; rooms · stored to <code>./data</code></p>
+			</form>
+		</section>
+
+		<!-- ===== Datasets list ===== -->
+		<section class="section section--alt" id="datasets">
+			<div class="section__head section__head--row" data-issue="№ 03 · Your library">
+				<div>
+					<h2 class="section__title">In the library.</h2>
+					<p class="section__lead">Every archive you've filed. Hover a row to retire it.</p>
+				</div>
+				<button class="btn btn--text" type="button" id="refresh-btn">↻ Refresh</button>
+			</div>
+
+			<div class="ledger" id="dataset-grid" aria-live="polite"></div>
+
+			<div class="empty" id="empty-state" hidden>
+				<p class="empty__title"><em>No archives yet.</em></p>
+				<p class="empty__text">File your first dataset above and it'll appear right here.</p>
+			</div>
+			<p class="card__footnote"><em>—</em> persisted to disk; reloads survive process restarts.</p>
+		</section>
+
+		<!-- ===== Search / Query ===== -->
+		<section class="section" id="search">
+			<div class="section__head" data-issue="№ 04 · Search">
+				<h2 class="section__title">Ask the archive.</h2>
+				<p class="section__lead">
+					Find a section by professor or grade. Or sift through rooms by capacity and furniture.
+					Power users can write the raw query themselves.
+				</p>
+			</div>
+
+			<div class="search">
+				<div class="search__topbar">
+					<div class="search__tabs" role="tablist" aria-label="Search target">
+						<input type="radio" name="search-mode" id="mode-sections" value="sections" checked />
+						<label for="mode-sections" class="search__tab" role="tab">Sections</label>
+						<input type="radio" name="search-mode" id="mode-rooms" value="rooms" />
+						<label for="mode-rooms" class="search__tab" role="tab">Rooms</label>
+					</div>
+					<button class="search__expert" type="button" id="adv-toggle" aria-expanded="false" aria-controls="adv-panel">
+						<span class="search__expert-mark" aria-hidden="true">{ }</span>
+						<span class="search__expert-label">Expert mode</span>
+					</button>
+				</div>
+
+				<div class="adv" id="adv-panel" hidden>
+					<label class="field__label" for="q-raw">Raw query (JSON)</label>
+					<textarea class="input input--code" id="q-raw" rows="8" spellcheck="false" placeholder='{ "WHERE": { "GT": { "sections_avg": 95 } }, "OPTIONS": { "COLUMNS": ["sections_dept", "sections_avg"] } }'></textarea>
+					<span class="field__help">When filled, this overrides the fields below.</span>
+				</div>
+
+				<p class="search__source">
+					<label for="query-dataset">Searching</label>
+					<select class="search__select" id="query-dataset"></select>
+					<span class="search__source-help" id="query-dataset-help"></span>
+				</p>
+
+				<p class="presets-prose" id="presets"></p>
+
+				<!-- Sections-mode controls -->
+				<div class="search__row" id="sections-controls">
+					<div class="field">
+						<label class="field__label" for="q-professor">Professor</label>
+						<input class="input input--rule" type="text" id="q-professor" placeholder="Kerr, Reid…" autocomplete="off" spellcheck="false" />
+						<span class="field__help">Case-insensitive contains, in any order.</span>
+					</div>
+					<div class="field">
+						<label class="field__label" for="q-dept">Department</label>
+						<input class="input input--rule input--mono" type="text" id="q-dept" list="dept-options" placeholder="cpsc" autocomplete="off" spellcheck="false" maxlength="6" />
+						<datalist id="dept-options"></datalist>
+						<span class="field__help">UBC subject code — full name on hover.</span>
+					</div>
+					<div class="field">
+						<label class="field__label" for="q-course">Course id</label>
+						<input class="input input--rule input--mono" type="text" id="q-course" placeholder="310" autocomplete="off" spellcheck="false" maxlength="6" />
+						<span class="field__help">Exact match — e.g. <code>310</code> or <code>121</code>.</span>
+					</div>
+					<div class="field">
+						<label class="field__label" for="q-title">Title contains</label>
+						<input class="input input--rule" type="text" id="q-title" list="title-keywords" placeholder="introduction" autocomplete="off" spellcheck="false" />
+						<datalist id="title-keywords"></datalist>
+						<span class="field__help">Free-text. Searches the original (abbreviated) title.</span>
+					</div>
+					<div class="field">
+						<span class="field__label">Section average</span>
+						<div class="grade-filter">
+							<select class="input input--rule" id="q-grade-op">
+								<option value="">— any —</option>
+								<option value="below">below</option>
+								<option value="above">above</option>
+								<option value="equals">equals</option>
+							</select>
+							<input class="input input--rule" type="number" id="q-grade-val" placeholder="70" min="0" max="100" step="0.01" />
+						</div>
+						<span class="field__help">Leave the operator on "any" to ignore grades.</span>
+					</div>
+					<div class="field">
+						<label class="field__label" for="q-year">Year</label>
+						<input class="input input--rule input--mono" type="number" id="q-year" placeholder="any" min="1900" max="2030" />
+						<span class="field__help">Single year — leave blank to include every year.</span>
+					</div>
+				</div>
+
+				<!-- Rooms-mode controls -->
+				<div class="search__row" id="rooms-controls" hidden>
+					<div class="field">
+						<label class="field__label" for="q-min-seats">Minimum seats</label>
+						<input class="input input--rule" type="number" id="q-min-seats" placeholder="100" min="0" step="1" />
+						<span class="field__help">Show rooms with at least this many seats.</span>
+					</div>
+					<div class="field">
+						<label class="field__label" for="q-building">Building code</label>
+						<input class="input input--rule input--mono" type="text" id="q-building" list="building-options" placeholder="DMP, ICCS…" autocomplete="off" spellcheck="false" maxlength="8" />
+						<datalist id="building-options"></datalist>
+						<span class="field__help">Match the short code — full building name on hover.</span>
+					</div>
+					<div class="field">
+						<label class="field__label" for="q-room-type">Room type</label>
+						<select class="input input--rule" id="q-room-type">
+							<option value="">Any type</option>
+							<option value="Small Group">Small Group</option>
+							<option value="Open Design General Purpose">Open Design</option>
+							<option value="Tiered Large Group">Tiered Large Group</option>
+							<option value="Case Style">Case Style</option>
+							<option value="Active Learning">Active Learning</option>
+							<option value="Studio Lab">Studio Lab</option>
+						</select>
+						<span class="field__help">UBC's official room-style buckets.</span>
+					</div>
+					<div class="field">
+						<label class="field__label" for="q-furniture">Furniture</label>
+						<select class="input input--rule" id="q-furniture">
+							<option value="">Any furniture</option>
+							<option value="Movable Tables">Movable Tables &amp; Chairs</option>
+							<option value="Movable Tablets">Movable Tablets</option>
+							<option value="Fixed Tables/Movable Chairs">Fixed Tables, Movable Chairs</option>
+							<option value="Fixed Tables/Fixed Chairs">Fixed Tables &amp; Chairs</option>
+							<option value="Fixed Tablets">Fixed Tablets</option>
+							<option value="Hybrid Furniture">Hybrid</option>
+							<option value="Learn Lab">Learn Lab</option>
+							<option value="__custom">Custom keyword…</option>
+						</select>
+						<input class="input input--rule q-furniture-custom" type="text" id="q-furniture-custom" placeholder="e.g. tablet" autocomplete="off" hidden />
+						<span class="field__help">Match anywhere in the furniture description.</span>
+					</div>
+				</div>
+
+				<label class="search__rollups" for="q-include-rollups">
+					<input type="checkbox" id="q-include-rollups" />
+					<span>Include the year-1900 “overall” rollup rows</span>
+				</label>
+
+				<div class="search__actions">
+					<button class="btn btn--primary" type="button" id="run-query">
+						<span class="btn__label">Run search</span>
+						<span class="btn__spinner" aria-hidden="true"></span>
+					</button>
+					<button class="btn btn--text btn--text-italic" type="button" id="clear-query">clear</button>
+				</div>
+
+				<div class="message" id="query-message" role="status" aria-live="polite" hidden></div>
+			</div>
+
+			<!-- Results -->
+			<div class="results" id="results" hidden>
+				<div class="results__head">
+					<p class="results__caption">Records, this query</p>
+					<p class="results__meta" id="results-meta"></p>
+				</div>
+				<div class="table-wrap">
+					<table class="table" id="results-table"></table>
+				</div>
+				<div class="results__foot" id="results-foot" hidden>
+					<p class="results__hint" id="results-hint"></p>
+					<div class="results__actions">
+						<button class="btn btn--ghost btn--sm" type="button" id="results-more">Show 50 more</button>
+						<button class="btn btn--text btn--text-italic" type="button" id="results-all">show every record</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== Custom feature: Course Pulse ===== -->
+		<section class="section section--alt" id="pulse">
+			<div class="section__head pulse__head" data-issue="№ 05 · Custom insight">
+				<h2 class="section__title">
+					<span class="grad-text">Course Pulse.</span>
+				</h2>
+				<p class="section__lead">
+					A year-over-year reading of any UBC course — average grade, leading instructors, and how it
+					compares to the rest of its department. Built on three GROUP+APPLY queries against your
+					sections dataset.
+				</p>
+			</div>
+
+			<div class="card pulse">
+				<form class="pulse__form" id="pulse-form" novalidate>
+					<p class="search__source pulse__source">
+						<label for="pulse-dataset">Reading from</label>
+						<select class="search__select" id="pulse-dataset"></select>
+						<span class="search__source-help" id="pulse-dataset-help"></span>
+					</p>
+					<div class="pulse__inputs">
+						<div class="field">
+							<label class="field__label" for="pulse-dept">Department</label>
+							<input class="input input--rule input--mono" type="text" id="pulse-dept" placeholder="cpsc" autocomplete="off" spellcheck="false" maxlength="6" />
+						</div>
+						<div class="field">
+							<label class="field__label" for="pulse-course">Course</label>
+							<input class="input input--rule input--mono" type="text" id="pulse-course" placeholder="310" autocomplete="off" spellcheck="false" maxlength="6" />
+						</div>
+						<div class="field">
+							<label class="field__label" for="pulse-min-year">Since</label>
+							<input class="input input--rule input--mono" type="number" id="pulse-min-year" placeholder="2010" min="1901" max="2030" />
+						</div>
+						<button class="btn btn--primary pulse__run" type="submit" id="pulse-run">
+							<span class="btn__label">Read pulse</span>
+							<span class="btn__spinner" aria-hidden="true"></span>
+						</button>
+					</div>
+					<p class="presets-prose pulse__chips" id="pulse-chips" aria-label="Course shortcuts">
+						<span class="presets-prose__lead">Try:</span>
+						<button type="button" data-pulse-preset="cpsc:310">CPSC 310</button>,
+						<button type="button" data-pulse-preset="math:100">MATH 100</button>,
+						<button type="button" data-pulse-preset="biol:200">BIOL 200</button>,
+						<button type="button" data-pulse-preset="psyc:101">PSYC 101</button>, or
+						<button type="button" data-pulse-preset="comm:101">COMM 101</button>.
+					</p>
+					<div class="message" id="pulse-message" role="status" aria-live="polite" hidden></div>
+				</form>
+
+				<!-- Empty state -->
+				<div class="pulse__empty" id="pulse-empty">
+					<p class="pulse__empty-text">
+						<em>No pulse</em> — <span class="grad-text">yet.</span>
+					</p>
+					<p class="pulse__empty-hint">Pick a course above, or try one of the shortcuts.</p>
+				</div>
+
+				<!-- Result -->
+				<div class="pulse__result" id="pulse-result" hidden>
+					<header class="pulse__masthead">
+						<div>
+							<div class="pulse__chip" id="pulse-chip">— —</div>
+							<p class="pulse__title" id="pulse-title">Course title appears here</p>
+							<p class="pulse__subtitle" id="pulse-subtitle"></p>
+						</div>
+						<div class="pulse__spark">
+							<svg id="pulse-sparkline" viewBox="0 0 320 64" preserveAspectRatio="none" aria-hidden="true"></svg>
+							<span class="pulse__spark-caption" id="pulse-spark-caption">Year-over-year average</span>
+						</div>
+						<dl class="pulse__kpis" aria-label="Headline metrics">
+							<div><dt>Sections</dt><dd id="pulse-kpi-sections">—</dd></div>
+							<div><dt>Overall avg</dt><dd id="pulse-kpi-avg">—</dd></div>
+							<div><dt>Years</dt><dd id="pulse-kpi-years">—</dd></div>
+							<div><dt>vs Dept</dt><dd id="pulse-kpi-delta">—</dd></div>
+						</dl>
+					</header>
+
+					<div class="pulse__grid">
+						<figure class="pulse__chart">
+							<figcaption class="pulse__caption">
+								<span class="legend"><span class="legend__swatch legend__swatch--course"></span>Course</span>
+								<span class="legend"><span class="legend__swatch legend__swatch--dept"></span>Dept baseline</span>
+							</figcaption>
+							<svg id="pulse-chart" viewBox="0 0 720 280" role="img" aria-label="Course average versus department baseline by year">
+								<defs>
+									<linearGradient id="pulseGrad" x1="0" y1="0" x2="1" y2="0">
+										<stop offset="0" stop-color="#6366f1" />
+										<stop offset="1" stop-color="#a855f7" />
+									</linearGradient>
+								</defs>
+							</svg>
+						</figure>
+
+						<figure class="pulse__instructors">
+							<figcaption class="pulse__caption">
+								<span>Top instructors</span>
+								<span class="caption__hint">bar = avg vs range; opacity = sections taught</span>
+							</figcaption>
+							<div id="pulse-instructors" class="instr-list" role="list" aria-label="Top instructors by average"></div>
+						</figure>
+					</div>
+
+					<figure class="pulse__strip">
+						<figcaption class="pulse__caption">
+							<span>Year strip</span>
+							<span class="caption__hint">tile height = sections offered, colour = average</span>
+						</figcaption>
+						<div class="pulse__strip-row" id="pulse-strip"></div>
+						<div class="pulse__scale" aria-hidden="true">
+							<span>50</span><span>65</span><span>80</span><span>90+</span>
+						</div>
+					</figure>
+
+					<p class="pulse__footnote">
+						<em>Note —</em> sections marked "overall" (year 1900) are excluded so they don't flatten
+						the trend. Instructor bars fade with section count: a 95% from one section reads
+						quieter than 80% from twenty.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- ===== Footer ===== -->
+	<footer class="footer">
+		<div class="footer__inner">
+			<a class="brand brand--footer" href="#top" aria-label="InsightUBC">
+				<svg class="brand__mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+					<rect x="1" y="1" width="30" height="30" rx="9" fill="url(#brandGrad)" />
+					<path d="M8 21 L14 14 L18 18 L24 10" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+					<circle cx="24" cy="10" r="2.4" fill="#fff" />
+				</svg>
+				<span class="brand__name">Insight<em class="brand__accent">UBC</em></span>
+			</a>
+			<p class="footer__colophon">
+				<em>Set in</em> Fraunces &amp; Inter. <em>Built with</em> TypeScript, Express, and one custom
+				endpoint. <em>Composed at</em> UBC, Vancouver.
+			</p>
+			<p class="footer__line">CPSC 310 · Team 039 · Edition 2026 · For educational use.</p>
+		</div>
+	</footer>
+
+	<script src="app.js"></script>
+</body>
+</html>

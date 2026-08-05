@@ -1,0 +1,19 @@
+
+{
+	"title": "references dataset not added",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"nonexistent_avg": 80
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"nonexistent_dept",
+				"nonexistent_avg"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

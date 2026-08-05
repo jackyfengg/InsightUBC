@@ -1,0 +1,21 @@
+
+{
+	"title": "GROUP by dept, MAX avg",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "maxAvg"],
+			"ORDER": { "dir": "UP", "keys": ["small_dept"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "maxAvg": { "MAX": "small_avg" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "maxAvg": 85.5 },
+		{ "small_dept": "engl", "maxAvg": 88 },
+		{ "small_dept": "math", "maxAvg": 91.2 }
+	]
+}

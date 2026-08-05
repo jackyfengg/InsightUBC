@@ -1,0 +1,22 @@
+
+{
+	"title": "ORDER multi-key tie break",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_year", "countDepts"],
+			"ORDER": { "dir": "UP", "keys": ["countDepts", "small_year"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_year"],
+			"APPLY": [{ "countDepts": { "COUNT": "small_dept" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_year": 1900, "countDepts": 1 },
+		{ "small_year": 2019, "countDepts": 1 },
+		{ "small_year": 2020, "countDepts": 2 },
+		{ "small_year": 2021, "countDepts": 2 }
+	]
+}

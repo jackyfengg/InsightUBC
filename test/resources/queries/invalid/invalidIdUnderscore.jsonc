@@ -1,0 +1,18 @@
+
+{
+	"title": "underscore in idstring part of key",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small__avg": 80
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small__avg"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

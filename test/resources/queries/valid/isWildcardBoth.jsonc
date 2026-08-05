@@ -1,0 +1,23 @@
+{
+	"title": "IS wildcard at both ends (contains)",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"small_title": "*Calculus*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_id",
+				"small_title"
+			],
+			"ORDER": "small_id"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "math", "small_id": "121", "small_title": "Calculus I" },
+		{ "small_dept": "math", "small_id": "200", "small_title": "Calculus III" }
+	]
+}

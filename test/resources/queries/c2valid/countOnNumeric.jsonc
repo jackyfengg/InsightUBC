@@ -1,0 +1,21 @@
+
+{
+	"title": "COUNT on numeric field (year)",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "uniqueYears"],
+			"ORDER": { "dir": "UP", "keys": ["small_dept"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "uniqueYears": { "COUNT": "small_year" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "uniqueYears": 3 },
+		{ "small_dept": "engl", "uniqueYears": 1 },
+		{ "small_dept": "math", "uniqueYears": 2 }
+	]
+}

@@ -1,0 +1,14 @@
+
+{
+	"title": "GT comparator used with sfield",
+	"input": {
+		"WHERE": {
+			"GT": { "small_dept": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

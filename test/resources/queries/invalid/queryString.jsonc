@@ -1,0 +1,7 @@
+
+{
+  "title": "Query is a string",
+  "input": "SELECT * FROM sections",
+  "errorExpected": true,
+  "expected": "InsightError"
+}

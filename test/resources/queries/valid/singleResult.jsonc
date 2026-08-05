@@ -1,0 +1,15 @@
+{
+	"title": "query returning exactly one result",
+	"input": {
+		"WHERE": {
+			"IS": { "small_uuid": "7" }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_uuid", "small_avg"]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "engl", "small_uuid": "7", "small_avg": 88 }
+	]
+}

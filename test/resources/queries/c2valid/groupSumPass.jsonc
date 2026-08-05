@@ -1,0 +1,21 @@
+
+{
+	"title": "GROUP by dept, SUM pass",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "sumPass"],
+			"ORDER": { "dir": "UP", "keys": ["small_dept"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "sumPass": { "SUM": "small_pass" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "sumPass": 1010 },
+		{ "small_dept": "engl", "sumPass": 100 },
+		{ "small_dept": "math", "sumPass": 350 }
+	]
+}

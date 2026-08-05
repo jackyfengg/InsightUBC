@@ -1,0 +1,24 @@
+
+{
+	"title": "GROUP by dept and id, MIN avg per group",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_id", "minAvg"],
+			"ORDER": { "dir": "UP", "keys": ["small_dept", "small_id"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept", "small_id"],
+			"APPLY": [{ "minAvg": { "MIN": "small_avg" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_id": "210", "minAvg": 72.4 },
+		{ "small_dept": "cpsc", "small_id": "310", "minAvg": 78.3 },
+		{ "small_dept": "engl", "small_id": "100", "minAvg": 88 },
+		{ "small_dept": "math", "small_id": "121", "minAvg": 65.1 },
+		{ "small_dept": "math", "small_id": "200", "minAvg": 91.2 }
+	]
+}
+

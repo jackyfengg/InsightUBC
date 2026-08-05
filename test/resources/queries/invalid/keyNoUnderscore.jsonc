@@ -1,0 +1,14 @@
+
+{
+	"title": "key with no underscore",
+	"input": {
+		"WHERE": {
+			"GT": { "smallavg": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

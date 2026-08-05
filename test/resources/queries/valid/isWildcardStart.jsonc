@@ -1,0 +1,24 @@
+{
+	"title": "IS wildcard at start (ends with)",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"small_title": "*Engineering"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_title",
+				"small_avg"
+			],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_title": "Software Engineering", "small_avg": 78.3 },
+		{ "small_dept": "cpsc", "small_title": "Software Engineering", "small_avg": 82 },
+		{ "small_dept": "cpsc", "small_title": "Software Engineering", "small_avg": 85.5 }
+	]
+}

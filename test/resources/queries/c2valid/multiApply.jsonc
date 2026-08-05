@@ -1,0 +1,25 @@
+
+{
+	"title": "Multiple APPLY rules: MAX, MIN, AVG of avg per dept",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "maxAvg", "minAvg", "avgAvg"],
+			"ORDER": { "dir": "UP", "keys": ["small_dept"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [
+				{ "maxAvg": { "MAX": "small_avg" } },
+				{ "minAvg": { "MIN": "small_avg" } },
+				{ "avgAvg": { "AVG": "small_avg" } }
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "maxAvg": 85.5, "minAvg": 72.4, "avgAvg": 79.55 },
+		{ "small_dept": "engl", "maxAvg": 88, "minAvg": 88, "avgAvg": 88 },
+		{ "small_dept": "math", "maxAvg": 91.2, "minAvg": 65.1, "avgAvg": 78.15 }
+	]
+}

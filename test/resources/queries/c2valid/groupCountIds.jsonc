@@ -1,0 +1,21 @@
+
+{
+	"title": "GROUP by dept, COUNT unique id (string)",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "uniqueIds"],
+			"ORDER": { "dir": "UP", "keys": ["small_dept"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "uniqueIds": { "COUNT": "small_id" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "uniqueIds": 2 },
+		{ "small_dept": "engl", "uniqueIds": 1 },
+		{ "small_dept": "math", "uniqueIds": 2 }
+	]
+}

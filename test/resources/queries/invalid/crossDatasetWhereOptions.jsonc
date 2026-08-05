@@ -1,0 +1,14 @@
+
+{
+	"title": "datasets in WHERE and OPTIONS differ",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["sections_dept", "sections_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

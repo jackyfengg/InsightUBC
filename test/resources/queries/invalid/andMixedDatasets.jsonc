@@ -1,0 +1,17 @@
+
+{
+  "title": "AND with mixed dataset ids",
+  "input": {
+    "WHERE": {
+      "AND": [
+        { "GT": { "sections_avg": 90 } },
+        { "IS": { "small_dept": "cpsc" } }
+      ]
+    },
+    "OPTIONS": {
+      "COLUMNS": ["sections_dept"]
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}

@@ -1,0 +1,26 @@
+{
+	"title": "NOT negation filter",
+	"input": {
+		"WHERE": {
+			"NOT": {
+				"IS": {
+					"small_dept": "cpsc"
+				}
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_id",
+				"small_avg"
+			],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "math", "small_id": "121", "small_avg": 65.1 },
+		{ "small_dept": "engl", "small_id": "100", "small_avg": 88 },
+		{ "small_dept": "math", "small_id": "200", "small_avg": 91.2 }
+	]
+}

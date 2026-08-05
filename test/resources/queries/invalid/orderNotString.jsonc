@@ -1,0 +1,15 @@
+
+{
+	"title": "ORDER is a number not a string",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"],
+			"ORDER": 42
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

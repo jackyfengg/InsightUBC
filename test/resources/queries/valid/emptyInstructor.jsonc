@@ -1,0 +1,26 @@
+{
+  "title": "IS empty string instructor",
+  "input": {
+    "WHERE": {
+      "AND": [
+        { "IS": { "small_instructor": "" } },
+        { "IS": { "small_dept": "cpsc" } }
+      ]
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "small_dept",
+        "small_instructor",
+        "small_year"
+      ]
+    }
+  },
+  "errorExpected": false,
+  "expected": [
+    {
+      "small_dept": "cpsc",
+      "small_instructor": "",
+      "small_year": 1900
+    }
+  ]
+}

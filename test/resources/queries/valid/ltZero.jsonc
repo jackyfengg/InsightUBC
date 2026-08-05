@@ -1,0 +1,15 @@
+{
+	"title": "LT with zero value",
+	"input": {
+		"WHERE": {
+			"LT": { "small_audit": 1 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_id", "small_audit"]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "math", "small_id": "200", "small_audit": 0 }
+	]
+}

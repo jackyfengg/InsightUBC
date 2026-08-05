@@ -1,0 +1,14 @@
+
+{
+	"title": "LT comparator used with sfield",
+	"input": {
+		"WHERE": {
+			"LT": { "small_dept": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

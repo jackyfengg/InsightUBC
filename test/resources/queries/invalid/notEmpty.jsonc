@@ -1,0 +1,14 @@
+
+{
+	"title": "NOT with empty object",
+	"input": {
+		"WHERE": {
+			"NOT": {}
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

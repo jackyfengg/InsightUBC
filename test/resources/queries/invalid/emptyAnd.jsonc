@@ -1,0 +1,16 @@
+
+{
+	"title": "AND with empty array",
+	"input": {
+		"WHERE": {
+			"AND": []
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

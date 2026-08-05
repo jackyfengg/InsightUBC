@@ -1,0 +1,14 @@
+
+{
+	"title": "GT value is a number not an object",
+	"input": {
+		"WHERE": {
+			"GT": 80
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

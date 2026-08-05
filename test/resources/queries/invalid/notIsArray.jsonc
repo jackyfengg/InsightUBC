@@ -1,0 +1,14 @@
+
+{
+	"title": "NOT value is an array not an object",
+	"input": {
+		"WHERE": {
+			"NOT": [{ "GT": { "small_avg": 80 } }]
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

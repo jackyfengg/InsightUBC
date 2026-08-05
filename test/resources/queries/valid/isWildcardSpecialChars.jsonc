@@ -1,0 +1,15 @@
+{
+	"title": "IS exact match with no special chars returns correct result",
+	"input": {
+		"WHERE": {
+			"IS": { "small_title": "Calculus I" }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_title", "small_avg"]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "math", "small_title": "Calculus I", "small_avg": 65.1 }
+	]
+}

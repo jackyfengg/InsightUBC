@@ -1,0 +1,44 @@
+{
+	"title": "nested AND/OR/NOT",
+	"input": {
+		"WHERE": {
+			"OR": [
+				{
+					"AND": [
+						{
+							"IS": {
+								"small_dept": "cpsc"
+							}
+						},
+						{
+							"GT": {
+								"small_avg": 80
+							}
+						}
+					]
+				},
+				{
+					"NOT": {
+						"GT": {
+							"small_avg": 70
+						}
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_id",
+				"small_avg"
+			],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "math", "small_id": "121", "small_avg": 65.1 },
+		{ "small_dept": "cpsc", "small_id": "310", "small_avg": 82 },
+		{ "small_dept": "cpsc", "small_id": "310", "small_avg": 85.5 }
+	]
+}

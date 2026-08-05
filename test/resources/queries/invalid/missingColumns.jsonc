@@ -1,0 +1,16 @@
+
+{
+	"title": "OPTIONS without COLUMNS",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small_avg": 80
+			}
+		},
+		"OPTIONS": {
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

@@ -1,0 +1,14 @@
+
+{
+	"title": "GT with two keys inside",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80, "small_pass": 100 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

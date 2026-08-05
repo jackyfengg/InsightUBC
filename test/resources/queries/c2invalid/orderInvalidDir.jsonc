@@ -1,0 +1,12 @@
+
+{
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"],
+			"ORDER": { "dir": "SIDEWAYS", "keys": ["small_avg"] }
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

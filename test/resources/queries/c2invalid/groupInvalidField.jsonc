@@ -1,0 +1,17 @@
+
+{
+	"title": "GROUP key references unknown field",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_invalidField"]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_invalidField"],
+			"APPLY": []
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
+

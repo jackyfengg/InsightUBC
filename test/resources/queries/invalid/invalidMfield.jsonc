@@ -1,0 +1,19 @@
+
+{
+	"title": "invalid mfield in key",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small_gpa": 80
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_gpa"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

@@ -1,0 +1,23 @@
+{
+	"title": "double NOT negation",
+	"input": {
+		"WHERE": {
+			"NOT": {
+				"NOT": {
+					"IS": { "small_dept": "cpsc" }
+				}
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_avg": 72.4 },
+		{ "small_dept": "cpsc", "small_avg": 78.3 },
+		{ "small_dept": "cpsc", "small_avg": 82 },
+		{ "small_dept": "cpsc", "small_avg": 85.5 }
+	]
+}

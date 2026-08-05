@@ -1,0 +1,16 @@
+{
+	"title": "APPLY rule with multiple applykeys (>1)",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "x"]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "x": { "MAX": "small_avg" }, "y": { "MIN": "small_avg" } }]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
+

@@ -1,0 +1,12 @@
+
+{
+	"title": "COLUMNS contains a non-string element",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", 123]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

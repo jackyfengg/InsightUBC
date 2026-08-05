@@ -1,0 +1,25 @@
+{
+  "title": "Query with uuid field",
+  "input": {
+    "WHERE": {
+      "IS": {
+        "small_uuid": "1"
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "small_uuid",
+        "small_dept",
+        "small_avg"
+      ]
+    }
+  },
+  "errorExpected": false,
+  "expected": [
+    {
+      "small_uuid": "1",
+      "small_dept": "cpsc",
+      "small_avg": 85.5
+    }
+  ]
+}

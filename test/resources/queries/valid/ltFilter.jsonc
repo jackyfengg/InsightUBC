@@ -1,0 +1,23 @@
+{
+	"title": "LT filter on avg",
+	"input": {
+		"WHERE": {
+			"LT": {
+				"small_avg": 75
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_id",
+				"small_avg"
+			],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "math", "small_id": "121", "small_avg": 65.1 },
+		{ "small_dept": "cpsc", "small_id": "210", "small_avg": 72.4 }
+	]
+}

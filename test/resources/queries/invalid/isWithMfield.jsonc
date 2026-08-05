@@ -1,0 +1,14 @@
+
+{
+	"title": "IS comparator used with mfield",
+	"input": {
+		"WHERE": {
+			"IS": { "small_avg": "eighty" }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

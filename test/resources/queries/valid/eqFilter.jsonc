@@ -1,0 +1,23 @@
+{
+	"title": "EQ filter on year",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"small_year": 2020
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_id",
+				"small_year"
+			],
+			"ORDER": "small_dept"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_id": "310", "small_year": 2020 },
+		{ "small_dept": "math", "small_id": "200", "small_year": 2020 }
+	]
+}

@@ -1,0 +1,21 @@
+
+{
+	"title": "GROUP by dept, AVG avg",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "avgAvg"],
+			"ORDER": { "dir": "UP", "keys": ["small_dept"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "avgAvg": { "AVG": "small_avg" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "avgAvg": 79.55 },
+		{ "small_dept": "engl", "avgAvg": 88 },
+		{ "small_dept": "math", "avgAvg": 78.15 }
+	]
+}

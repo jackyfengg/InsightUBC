@@ -1,0 +1,14 @@
+
+{
+  "title": "AND list contains a string",
+  "input": {
+    "WHERE": {
+      "AND": ["not a filter object"]
+    },
+    "OPTIONS": {
+      "COLUMNS": ["sections_dept"]
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}

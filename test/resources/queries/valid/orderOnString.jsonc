@@ -1,0 +1,19 @@
+{
+	"title": "ORDER by a string field",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg", "small_uuid"],
+			"ORDER": "small_uuid"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_avg": 85.5, "small_uuid": "1" },
+		{ "small_dept": "cpsc", "small_avg": 82, "small_uuid": "3" },
+		{ "small_dept": "math", "small_avg": 91.2, "small_uuid": "6" },
+		{ "small_dept": "engl", "small_avg": 88, "small_uuid": "7" }
+	]
+}

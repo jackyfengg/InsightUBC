@@ -1,0 +1,19 @@
+
+{
+	"title": "references two dataset ids",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small_avg": 80
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"sections_avg"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

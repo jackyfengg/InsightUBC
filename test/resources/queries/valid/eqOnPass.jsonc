@@ -1,0 +1,25 @@
+{
+  "title": "EQ on pass field",
+  "input": {
+    "WHERE": {
+      "EQ": {
+        "small_pass": 50
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "small_dept",
+        "small_pass",
+        "small_id"
+      ]
+    }
+  },
+  "errorExpected": false,
+  "expected": [
+    {
+      "small_dept": "math",
+      "small_pass": 50,
+      "small_id": "200"
+    }
+  ]
+}

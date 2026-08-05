@@ -1,0 +1,14 @@
+
+{
+	"title": "IS with empty string key (no dataset id)",
+	"input": {
+		"WHERE": {
+			"IS": { "_dept": "cpsc" }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

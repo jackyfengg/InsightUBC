@@ -1,0 +1,7 @@
+
+{
+  "title": "Query is a boolean",
+  "input": true,
+  "errorExpected": true,
+  "expected": "InsightError"
+}

@@ -1,0 +1,22 @@
+{
+	"title": "IS with single wildcard matches all",
+	"input": {
+		"WHERE": {
+			"IS": { "small_dept": "*" }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "math", "small_avg": 65.1 },
+		{ "small_dept": "cpsc", "small_avg": 72.4 },
+		{ "small_dept": "cpsc", "small_avg": 78.3 },
+		{ "small_dept": "cpsc", "small_avg": 82 },
+		{ "small_dept": "cpsc", "small_avg": 85.5 },
+		{ "small_dept": "engl", "small_avg": 88 },
+		{ "small_dept": "math", "small_avg": 91.2 }
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"title": "APPLY rule has zero APPLYTOKENs (empty inner object)",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "x"]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "x": {} }]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
+

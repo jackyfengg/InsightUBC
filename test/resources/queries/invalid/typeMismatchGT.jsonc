@@ -1,0 +1,19 @@
+
+{
+	"title": "string value for GT comparator",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small_avg": "eighty"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_avg"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

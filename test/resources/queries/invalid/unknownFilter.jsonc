@@ -1,0 +1,14 @@
+
+{
+	"title": "unknown filter operator BETWEEN",
+	"input": {
+		"WHERE": {
+			"BETWEEN": { "small_avg": [70, 90] }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

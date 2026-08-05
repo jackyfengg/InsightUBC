@@ -1,0 +1,18 @@
+
+{
+	"title": "number value for IS comparator",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"small_dept": 123
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

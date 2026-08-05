@@ -1,0 +1,22 @@
+
+{
+	"title": "TRANSFORMATIONS with WHERE filter and APPLY",
+	"input": {
+		"WHERE": { "GT": { "small_avg": 80 } },
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "totalPass"],
+			"ORDER": { "dir": "DOWN", "keys": ["totalPass"] }
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "totalPass": { "SUM": "small_pass" } }]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "totalPass": 580 },
+		{ "small_dept": "engl", "totalPass": 100 },
+		{ "small_dept": "math", "totalPass": 50 }
+	]
+}
+

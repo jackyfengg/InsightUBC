@@ -1,0 +1,19 @@
+{
+	"title": "AND with single filter element",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"IS": { "small_dept": "engl" }
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "engl", "small_avg": 88 }
+	]
+}

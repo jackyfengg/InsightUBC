@@ -1,0 +1,15 @@
+
+{
+	"title": "WHERE with more than one key",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80 },
+			"LT": { "small_avg": 90 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

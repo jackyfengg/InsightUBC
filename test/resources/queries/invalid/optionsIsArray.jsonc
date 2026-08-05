@@ -1,0 +1,10 @@
+
+{
+	"title": "OPTIONS is an array",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": [{ "COLUMNS": ["small_dept"] }]
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

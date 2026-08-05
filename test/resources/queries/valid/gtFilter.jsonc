@@ -1,0 +1,23 @@
+{
+	"title": "GT filter on avg",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small_avg": 85
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_avg"
+			],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_avg": 85.5 },
+		{ "small_dept": "engl", "small_avg": 88 },
+		{ "small_dept": "math", "small_avg": 91.2 }
+	]
+}

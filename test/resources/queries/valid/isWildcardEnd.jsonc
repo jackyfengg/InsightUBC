@@ -1,0 +1,25 @@
+{
+	"title": "IS wildcard at end (starts with)",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"small_dept": "cp*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_id",
+				"small_avg"
+			],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_id": "210", "small_avg": 72.4 },
+		{ "small_dept": "cpsc", "small_id": "310", "small_avg": 78.3 },
+		{ "small_dept": "cpsc", "small_id": "310", "small_avg": 82 },
+		{ "small_dept": "cpsc", "small_id": "310", "small_avg": 85.5 }
+	]
+}

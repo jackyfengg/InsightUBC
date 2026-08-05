@@ -1,0 +1,15 @@
+
+{
+	"title": "extra top-level key TRANSFORMATIONS",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"]
+		},
+		"TRANSFORMATIONS": {}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

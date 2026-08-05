@@ -1,0 +1,31 @@
+{
+  "title": "LT filter on year",
+  "input": {
+    "WHERE": {
+      "LT": {
+        "small_year": 2020
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "small_dept",
+        "small_year",
+        "small_title"
+      ],
+      "ORDER": "small_year"
+    }
+  },
+  "errorExpected": false,
+  "expected": [
+    {
+      "small_dept": "cpsc",
+      "small_year": 1900,
+      "small_title": "Software Engineering"
+    },
+    {
+      "small_dept": "engl",
+      "small_year": 2019,
+      "small_title": "Intro to English"
+    }
+  ]
+}

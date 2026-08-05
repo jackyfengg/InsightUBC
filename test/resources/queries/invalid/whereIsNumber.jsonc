@@ -1,0 +1,12 @@
+
+{
+  "title": "WHERE is a number",
+  "input": {
+    "WHERE": 42,
+    "OPTIONS": {
+      "COLUMNS": ["sections_avg"]
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}

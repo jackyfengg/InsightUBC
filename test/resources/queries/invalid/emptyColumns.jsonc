@@ -1,0 +1,16 @@
+
+{
+	"title": "COLUMNS is empty array",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small_avg": 80
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": []
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

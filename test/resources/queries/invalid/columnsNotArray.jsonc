@@ -1,0 +1,14 @@
+
+{
+	"title": "COLUMNS is a string not an array",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": "small_dept"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

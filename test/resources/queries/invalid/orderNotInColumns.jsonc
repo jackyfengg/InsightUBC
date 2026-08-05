@@ -1,0 +1,19 @@
+
+{
+	"title": "ORDER key not in COLUMNS",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"small_avg": 80
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept"
+			],
+			"ORDER": "small_avg"
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

@@ -1,0 +1,12 @@
+{
+	"input": {
+		"WHERE": {},
+		"OPTIONS": { "COLUMNS": ["small_dept", "bad_key"] },
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "bad_key": { "MAX": "small_avg" } }]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

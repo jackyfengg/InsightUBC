@@ -1,0 +1,16 @@
+
+{
+	"title": "extra key in OPTIONS",
+	"input": {
+		"WHERE": {
+			"GT": { "small_avg": 80 }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_avg"],
+			"ORDER": "small_avg",
+			"LIMIT": 10
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

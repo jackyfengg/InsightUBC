@@ -1,0 +1,13 @@
+
+{
+	"input": {
+		"WHERE": {},
+		"OPTIONS": { "COLUMNS": ["small_dept", "x"] },
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "x": { "MIN": "small_dept" } }]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

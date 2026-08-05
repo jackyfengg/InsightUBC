@@ -1,0 +1,21 @@
+{
+	"title": "valid query without ORDER",
+	"input": {
+		"WHERE": {
+			"EQ": {
+				"small_year": 2019
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept",
+				"small_id",
+				"small_avg"
+			]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "engl", "small_id": "100", "small_avg": 88 }
+	]
+}

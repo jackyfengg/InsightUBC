@@ -1,0 +1,19 @@
+{
+	"title": "APPLY token MAX target is an applykey, not a dataset key",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "x", "y"]
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [
+				{ "x": { "MAX": "small_avg" } },
+				{ "y": { "MAX": "x" } }
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
+

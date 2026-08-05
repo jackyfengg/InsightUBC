@@ -1,0 +1,15 @@
+{
+	"title": "IS with empty string matches empty instructor",
+	"input": {
+		"WHERE": {
+			"IS": { "small_instructor": "" }
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept", "small_id", "small_instructor"]
+		}
+	},
+	"errorExpected": false,
+	"expected": [
+		{ "small_dept": "cpsc", "small_id": "310", "small_instructor": "" }
+	]
+}

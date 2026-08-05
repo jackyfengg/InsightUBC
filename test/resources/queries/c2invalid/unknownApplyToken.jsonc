@@ -1,0 +1,13 @@
+
+{
+	"input": {
+		"WHERE": {},
+		"OPTIONS": { "COLUMNS": ["small_dept", "x"] },
+		"TRANSFORMATIONS": {
+			"GROUP": ["small_dept"],
+			"APPLY": [{ "x": { "MEDIAN": "small_avg" } }]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

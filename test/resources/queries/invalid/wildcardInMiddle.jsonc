@@ -1,0 +1,18 @@
+
+{
+	"title": "asterisk in middle of IS string",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"small_dept": "cp*c"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"small_dept"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

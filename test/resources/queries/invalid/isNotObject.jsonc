@@ -1,0 +1,14 @@
+
+{
+	"title": "IS value is a string not an object",
+	"input": {
+		"WHERE": {
+			"IS": "small_dept"
+		},
+		"OPTIONS": {
+			"COLUMNS": ["small_dept"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}
