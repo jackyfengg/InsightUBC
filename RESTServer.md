@@ -1,10 +1,3 @@
-<details>
-<summary>AI usage disclaimer</summary>
-
-Used AI to assist in writing RESTServer.md:
-
-</details>
-
 # RESTServer
 
 REST API documentation for InsightUBC. The server (`src/rest/Server.ts`) exposes

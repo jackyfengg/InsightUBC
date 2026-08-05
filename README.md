@@ -1,19 +1,11 @@
-<details>
-<summary>AI usage disclaimer</summary>
-
-Used AI to assist in writing README.md.
-
-</details>
-
-# CPSC 310 Project — InsightUBC (Team 039)
+# InsightUBC 
 
 A web app for UBC course planning. Upload sections and rooms datasets, browse
 your library, search by professor / grade / department / title / year /
 building, and read the year-over-year **Course Pulse** of any UBC course.
 The frontend is served by the same Express server that exposes the REST API.
 
-> Please keep your repository private. For information about the project,
-> AutoTest, and the checkpoints, see the course website.
+Showcase Video: https://www.youtube.com/watch?v=vOoid99DFIM
 
 ---
 
